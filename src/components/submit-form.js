@@ -7,7 +7,7 @@ import {initiateTransaction} from '../actions/actions';
 export class SubmitForm extends React.Component{
   onSubmit(values) {
     console.log('what is value for onSubmit', values);
-    return this.props.dispatch(initiateTransaction(values));
+    return this.props.dispatch(initiateTransaction(values))
   }
   render() {
     return (
