@@ -53,8 +53,8 @@ export const initiateTransaction = values => dispatch => {
   .catch(error => dispatch(requestError(error)))
 }
 
-export const updateInitiatorAccount = values => dispatch => {
-  console.log("Am I working");
+//works
+const updateInitiatorAccount = values => dispatch => {
   fetch(`${REACT_APP_API_BASE_URL}/account/send`, {
     method: 'PUT',
     body: JSON.stringify(values),
@@ -77,6 +77,28 @@ export const updateInitiatorAccount = values => dispatch => {
 //works
 export const claimTransaction = (values, transactionId) => dispatch => {
   fetch(`${REACT_APP_API_BASE_URL}/transaction/receive/${transactionId}`, {
+    method: 'PUT',
+    body: JSON.stringify(values),
+    headers: {
+      "content-type": "application/json"
+    }
+  })
+  .then(response =>  {
+    if (!response.ok) {
+      return Promise.reject(response.statusText);
+    }
+    return response.json();
+  })
+  .then( request => {
+    console.log('what is request in claimTransaction?????', request);
+    dispatch(updateClaimerAccount(request));
+    dispatch(requestSuccess(request))})
+  .catch(error => dispatch(requestError(error)))
+}
+
+//works
+const updateClaimerAccount = values => dispatch => {
+  fetch(`${REACT_APP_API_BASE_URL}/account/receive/${values._id}`, {
     method: 'PUT',
     body: JSON.stringify(values),
     headers: {
