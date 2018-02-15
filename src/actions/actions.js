@@ -18,20 +18,6 @@ export const requestError = () => ({
   type: ERROR,
 });
 
-export const putRequest = () => (dispatch) => {
-  dispatch(actionRequest());
-  fetch(`${REACT_APP_API_BASE_URL}/request`)
-  .then(response =>  {
-    if (!response.ok) {
-      return Promise.reject(response.statusText);
-    }
-    return response.json();
-  })
-  .then(request => {console.log('what is request here', request);
-    dispatch(requestSuccess(request))})
-  .catch(error => dispatch(requestError(error)))
-}
-
 //works
 export const initiateTransaction = values => dispatch => {
   return fetch(`${REACT_APP_API_BASE_URL}/transaction/send`, {
@@ -90,7 +76,6 @@ export const claimTransaction = (values, transactionId) => dispatch => {
     return response.json();
   })
   .then( request => {
-    console.log('what is request in claimTransaction?????', request);
     dispatch(updateClaimerAccount(request));
     dispatch(requestSuccess(request))})
   .catch(error => dispatch(requestError(error)))
