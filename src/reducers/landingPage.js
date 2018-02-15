@@ -1,11 +1,14 @@
 import {REQUEST, SUCCESS, ERROR} from '../actions/landingPage';
 
 const initialState = {
-    private_key: '',
-    amount: 0,
-    balance: 0,
+    userIdInitator: '',
+    userIdClaimer: '',
+    transactionAmount: 0,
+    accountBalance: 0,
     loading: false,
     error: null,
+    page: '',
+    transactionId: ''
 };
 
 export default (state = initialState, action) => {

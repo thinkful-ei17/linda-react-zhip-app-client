@@ -1,29 +1,18 @@
 import React from 'react';
-import { connect } from 'react-redux';
-//import {actionRequest} from '../actions/landingPage';
 
 
-class LandingPage extends React.Component{
+export default class LandingPage extends React.Component{
   componentDidMount(){
-    console.log('testing wires');
+    console.log('testing wires for LandingPage');
   }
   
   render(){
-  console.log('testing wires of render');
+  console.log('testing wires of render for LandingPage');
 
-  return (
-    <div>
-    <div>Hello World</div>
-    <div>{this.props.amount}</div>
-    </div>
-  );
+    return (
+      <div>
+      <div>Hello World, You have Landed!</div>
+      </div>
+    );
   }
 }
-
-const mapStateToProps = state => ({
-  amount: state.amount,
-  balance: state.balance,
-  public_key: state.public_key,
-});
-
-export default connect(mapStateToProps)(LandingPage);

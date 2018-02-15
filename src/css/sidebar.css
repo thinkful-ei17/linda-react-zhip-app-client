@@ -1,0 +1,19 @@
+.sidebar {
+  min-width: 100px;
+}
+
+.sidebar-left {
+  border-right: 1px solid #000;
+  margin-right: 10px;
+}
+
+.folder-menu-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.folder-menu-list-item {
+  padding: 10px;
+  border-bottom: 1px solid #000;
+}
