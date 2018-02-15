@@ -6,9 +6,11 @@ import {claimTransaction} from '../actions/actions';
 
 export class ClaimForm extends React.Component{
   onSubmit(values) {
-    console.log('what is value for onSubmit', values);
-    return this.props.dispatch(claimTransaction(values));
+    const transactionId = this.props.match.params.transactionId;
+    return this.props.dispatch(claimTransaction(values, transactionId));
   }
+
+ 
   render() {
     return (
       <form onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>

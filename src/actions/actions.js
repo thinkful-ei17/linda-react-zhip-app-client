@@ -69,7 +69,7 @@ export const initiateTransaction = values => dispatch => {
     }
     return Promise.reject(
       new SubmissionError({
-        _error: 'Could not complain at this time'
+        _error: 'Could not initiate transaction at this time'
         })
     );
   });
@@ -78,45 +78,21 @@ export const initiateTransaction = values => dispatch => {
 
 
 
-export const claimTransaction = values => dispatch => {
-  console.log('what is claimTransaction', values);
-  return fetch(`${REACT_APP_API_BASE_URL}/transaction/receive/${values._id}`, {
+export const claimTransaction = (values, transactionId) => dispatch => {
+  fetch(`${REACT_APP_API_BASE_URL}/transaction/receive/${transactionId}`, {
     method: 'PUT',
     body: JSON.stringify(values),
     headers: {
-
+      "content-type": "application/json"
     }
   })
-  .then(res => {
-    if (!res.ok){
-      if (
-        res.headers.has('') && 
-        res.headers
-          .get('')
-          .startsWith('')
-      ) {
-        return res.json().then(err => Promise.reject(err));
-      }
-      return Promise.reject({
-        code: res.status,
-        message: res.statusText,
-      });
+  .then(response =>  {
+    if (!response.ok) {
+      return Promise.reject(response.statusText);
     }
-    return;
+    return response.json();
   })
-  .then(() => console.log('Submitted with values', values))
-  .catch(error => {
-    if (error.reason === 'ValidationError') {
-      return Promise.reject(
-        new SubmissionError({
-          [error.location]: error.message
-          })
-      );
-    }
-    return Promise.reject(
-      new SubmissionError({
-        _error: 'Could not complain at this time'
-        })
-    );
-  });
+  .then( request => {
+    dispatch(requestSuccess(request))})
+  .catch(error => dispatch(requestError(error)))
 }
