@@ -23,15 +23,32 @@ export const accountActionRequest = () => ({
 });
 
 export const ACCOUNT_SUCCESS = 'ACCOUNT_SUCCESS';
-export const accountSuccess = (accountBalance) => ({
+export const accountSuccess = (account) => ({
   type: ACCOUNT_SUCCESS,
-  accountBalance
+  payload: {accountBalance: account.accountBalance, userId: account._id}
 });
 
 export const ACCOUNT_ERROR = 'ACCOUNT_ERROR';
 export const accountError = () => ({
   type: ACCOUNT_ERROR,
 });
+
+// export const SETUP_ACTION_REQUEST = 'ACCOUNT_ACTION_REQUEST';
+// export const accountActionRequest = () => ({
+//   type: ACCOUNT_ACTION_REQUEST,
+// });
+
+// export const SETUP_SUCCESS = 'ACCOUNT_SUCCESS';
+// export const accountSuccess = (account) => ({
+//   type: ACCOUNT_SUCCESS,
+//   payload: {accountBalance: account.accountBalance, userId: account._id}
+// });
+
+// export const SETUP_ERROR = 'ACCOUNT_ERROR';
+// export const accountError = () => ({
+//   type: ACCOUNT_ERROR,
+// });
+
 
 //works
 export const createNewUser = () => dispatch => {
@@ -47,7 +64,10 @@ export const createNewUser = () => dispatch => {
     return response.json();
   })
   .then( request => {
-    dispatch(accountSuccess(request))})
+    console.log(request);
+    dispatch(accountSuccess(request));
+    return '1'
+  })
   .catch(error => dispatch(accountError(error)))
 }
 

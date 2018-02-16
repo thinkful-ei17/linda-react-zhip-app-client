@@ -30,10 +30,12 @@ export default (state = initialState, action) => {
           loading: true
         })
       case ACCOUNT_SUCCESS:
+        console.log('what is action for account success', action);
         return Object.assign({}, state, {
           loading: false,
           error: null,
-          accountBalance: action.accountBalance
+          accountBalance: action.payload.accountBalance,
+          userId: action.payload.userId
         })
       case ACCOUNT_ERROR:
         return Object.assign({}, state, {

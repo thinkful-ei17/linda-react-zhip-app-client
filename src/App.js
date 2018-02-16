@@ -4,7 +4,7 @@ import LandingPage from './components/landingPage';
 import Sidebar from './components/sidebar';
 import SubmitForm from './components/submit-form';
 import ClaimForm from './components/claim-form';
-import SubmitTransactionResults from './components/submit-form-results';
+import PlaceholderContainer from './components/placeholder-container';
 import {
   BrowserRouter as Router,
   Route,
@@ -22,7 +22,8 @@ export default function App() {
                   <Redirect exact from="/" to="/home" />
                   <Route exact path="/home" component={LandingPage}/>
                   <Route exact path="/submit" component={SubmitForm}/>
-                  <Route exact path="/submit" component={SubmitTransactionResults}/>
+                 
+                  <Route exact path="/r" component={PlaceholderContainer}/>
                   <Route exact path="/transaction/receive/:transactionId" component={ClaimForm}/>
             </Switch>
           </main>
