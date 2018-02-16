@@ -1,9 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import Spinner from 'react-spinkit';
-import {searchCharacters} from '../actions';
+//import {initiateTransaction} from '../actions/actions';
+import {REACT_APP_API_BASE_URL} from '../config';
 
-export class CharacterSearch extends React.Component {
+export class SubmitTransactionResults extends React.Component {
     renderResults() {
         if (this.props.loading) {
             return <Spinner spinnerName="circle" noFadeIn />;
@@ -13,46 +14,33 @@ export class CharacterSearch extends React.Component {
             return <strong>{this.props.error}</strong>;
         }
 
-        const characters = this.props.characters.map((character, index) =>
-            <li key={index}>{character}</li>
-        );
-
+        const transaction = this.props.transactionAmount;
+        const transactionLink = `${REACT_APP_API_BASE_URL}/transaction/receive/${this.props.transactionId}`
 
         return (
-            <ul className="character-search-results">
-                {characters}
-            </ul>
+            <div className="transaction-details">
+                <p>IOU Successfully Created!</p>
+                <p>IOU Amount: {transaction} </p>
+                <p>Send this unique link to the recipient!</p>
+                <p>{transactionLink}</p>
+            </div>
         );
-    }
-
-    search(e) {
-        e.preventDefault();
-        if (this.input.value.trim() === '') {
-            return;
-        }
-
-        this.props.dispatch(searchCharacters(this.input.value));
     }
 
     render() {
         return (
-            <div className="character-search">
-                <form onSubmit={(e) => this.search(e)}>
-                    <input type="search" ref={input => this.input = input} />
-                    <button>Search</button>
-                </form>
-                <ul className="character-search-results">
+            <div className="transaction-section">
                     {this.renderResults()}
-                </ul>
             </div>
         );
     }
 }
 
 const mapStateToProps = state => ({
-    characters: state.characters,
+    transactionAmount: state.transactionAmount,
+    transactionId: state.transactionId,
     loading: state.loading,
     error: state.error
 });
 
-export default connect(mapStateToProps)(CharacterSearch);
+export default connect(mapStateToProps)(SubmitTransactionResults);

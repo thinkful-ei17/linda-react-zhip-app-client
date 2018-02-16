@@ -6,7 +6,7 @@ import {initiateTransaction} from '../actions/actions';
 
 export class SubmitForm extends React.Component{
   onSubmit(values) {
-    console.log('what is value for onSubmit', values);
+    console.log('submit-form component, onSubmit button was triggered, dispatch initiateTransaction action which will also dispatch account update');
     return this.props.dispatch(initiateTransaction(values))
   }
   render() {
