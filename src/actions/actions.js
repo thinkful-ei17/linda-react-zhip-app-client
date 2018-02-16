@@ -48,6 +48,22 @@ export const setupUserError = () => ({
   type: SETUP_USER_ERROR,
 });
 
+export const ACTIVITY_ACTION_REQUEST = 'ACTIVITY_ACTION_REQUEST';
+export const activityActionRequest = () => ({
+  type: ACTIVITY_ACTION_REQUEST,
+});
+
+export const ACTIVITY_SUCCESS = 'ACTIVITY_SUCCESS';
+export const activitySuccess = (transaction) => ({
+  type: ACTIVITY_SUCCESS,
+  payload: {transactionAmount: transaction.transactionAmount, transactionId: transaction._id}
+});
+
+export const ACTIVITY_ERROR = 'ACTIVITY_ERROR';
+export const activityError = () => ({
+  type: ACTIVITY_ERROR,
+});
+
 
 //works
 export const createNewUser = () => dispatch => {
@@ -184,7 +200,31 @@ export const fetchBalance = values => dispatch => {
   .then( request => {
     console.log('what and where am i request', request);
     dispatch(accountSuccess(request));
-    return '3'
   })
   .catch(error => dispatch(accountError(error)))
+}
+
+//works
+export const fetchTransactions = values => dispatch => {
+  console.log('fetchTransactions action was called');
+  dispatch(activityActionRequest());
+  console.log('what is in my values', values);
+  fetch(`${REACT_APP_API_BASE_URL}/activity/${values.userId}`, {
+    method: 'GET',
+    headers: {
+      "Accept": "application/json"
+    }
+  })
+  .then(response =>  {
+    console.log('are we doing anything here response',response);
+    if (!response.ok) {
+      return Promise.reject(response.statusText);
+    }
+    return response.json();
+  })
+  .then( request => {
+    console.log('what and where am i request', request);
+    dispatch(activitySuccess(request));
+  })
+  .catch(error => dispatch(activityError(error)))
 }

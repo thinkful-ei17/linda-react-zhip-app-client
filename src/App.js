@@ -9,6 +9,8 @@ import InitiateTransactionContainer from './components/initiate-transaction-cont
 import ClaimTransactionContainer from './components/claim-transaction-container';
 import BalanceForm from './components/balance-form';
 import BalanceContainer from './components/balance-container';
+import ActivityForm from './components/activity-form';
+import ActivityContainer from './components/activity-container';
 import {
   BrowserRouter as Router,
   Route,
@@ -32,6 +34,8 @@ export default function App() {
                   <Route exact path="/ct" component={ClaimTransactionContainer}/>
                   <Route exact path="/balance" component={BalanceForm}/>
                   <Route exact path="/ab" component={BalanceContainer}/>
+                  <Route exact path="/activity" component={ActivityForm}/>
+                  <Route exact path="/aa" component={ActivityContainer}/>
             </Switch>
           </main>
         </div>
