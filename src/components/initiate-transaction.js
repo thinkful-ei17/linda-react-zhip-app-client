@@ -7,8 +7,8 @@ export default ({transactionAmount, transactionId}) => {
   return (
     <div>
       <p>Success!</p>
-      <p>Transaction Id: {transactionId}</p>
-      <p>Transaction Amount: {transactionAmount}</p>
+      <p>IOU Id: {transactionId}</p>
+      <p>IOU Amount: {transactionAmount}</p>
       <p>Provide this unique url to IOU recipient:</p>
       <p>{link}</p>
     </div>
