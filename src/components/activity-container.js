@@ -1,21 +1,27 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import Activity from './activity';
 import '../css/activity.css';
 
-export class ActivityContainer extends React.Component {
-    
-    render(props) {
+export function ActivityContainer({transactionsList}) {
+        const transactions = transactionsList.map(transaction => (
+            <li className='transactions-list-transaction' key={transaction._id}>
+                <div className='transaction-container'>
+                    <div className='transactions-list-transaction-id'><span className='key-name'>IOU ID:</span> {transaction._id}</div>
+                    <div className='transactions-list-transaction-amount'><span className='key-name'>IOU Amount:</span>{transaction.transactionAmount}</div>
+                </div>
+            </li>
+        ));
+
         return (
             <div className="activity-section">
-                <Activity accountBalance={this.props.accountBalance} />
+                <div className='title'>Activity</div>
+                <ul className='transactions-list'> {transactions} </ul>
             </div>
         );
-    }
 }
 
 const mapStateToProps = state => ({
-    accountBalance: state.appReducer.accountBalance,
+    transactionsList: state.appReducer.transactionsList,
 });
 
 export default connect(mapStateToProps)(ActivityContainer);

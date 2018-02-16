@@ -1,4 +1,4 @@
-import {TRANSACTION_ACTION_REQUEST, TRANSACTION_SUCCESS, TRANSACTION_ERROR, ACCOUNT_ACTION_REQUEST, ACCOUNT_SUCCESS, ACCOUNT_ERROR, SETUP_USER_ACTION_REQUEST, SETUP_USER_SUCCESS, SETUP_USER_ERROR} from '../actions/actions';
+import {TRANSACTION_ACTION_REQUEST, TRANSACTION_SUCCESS, TRANSACTION_ERROR, ACCOUNT_ACTION_REQUEST, ACCOUNT_SUCCESS, ACCOUNT_ERROR, SETUP_USER_ACTION_REQUEST, SETUP_USER_SUCCESS, SETUP_USER_ERROR, ACTIVITY_ACTION_REQUEST, ACTIVITY_SUCCESS, ACTIVITY_ERROR} from '../actions/actions';
 
 const initialState = {
     transactionAmount: 0,
@@ -6,7 +6,8 @@ const initialState = {
     loading: false,
     error: null,
     transactionId: '',
-    userId: ''
+    userId: '',
+    transactionsList: []
 };
 
 export default (state = initialState, action) => {
@@ -59,6 +60,21 @@ export default (state = initialState, action) => {
           loading: false,
           error: action.error
         })
+      case ACTIVITY_ACTION_REQUEST: 
+        return Object.assign({}, state, {
+          loading: true
+        })
+      case ACTIVITY_SUCCESS:
+        return Object.assign({}, state, {
+          loading: false,
+          error: null,
+          transactionsList: action.payload.transactionsList,
+        })
+      case ACTIVITY_ERROR:
+        return Object.assign({}, state, {
+          loading: false,
+          error: action.error
+        })        
       default:
         return state
     }

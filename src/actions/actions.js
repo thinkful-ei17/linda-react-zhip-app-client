@@ -56,7 +56,7 @@ export const activityActionRequest = () => ({
 export const ACTIVITY_SUCCESS = 'ACTIVITY_SUCCESS';
 export const activitySuccess = (transaction) => ({
   type: ACTIVITY_SUCCESS,
-  payload: {transactionAmount: transaction.transactionAmount, transactionId: transaction._id}
+  payload: {transactionsList: transaction}
 });
 
 export const ACTIVITY_ERROR = 'ACTIVITY_ERROR';

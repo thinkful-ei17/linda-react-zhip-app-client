@@ -1,16 +1,19 @@
 #activity-section{
   height: 100vh;
+
 }
 
-.balance-details p{
-  color:rgba(0, 0, 0, 0.753);
-  font-size: 2em;
-  margin-left: 115px;
-  margin-right: 115px;
-  text-align: center;
+.title{
+  display: flex;
+  justify-content: center;
+  padding-top: 25px;
 }
 
-.info-container {
+.transactions-list{
+  list-style: none;
+}
+
+div.transaction-container {
   margin-top: 10px;
   margin-bottom: 10px;
   margin-right: 50px;
@@ -20,9 +23,9 @@
   border: 5px solid white;
   border-radius: 5px;
   background-color: white;
-}
-
-p.attention-stmt{
-  padding: 24px;
-  font-weight: 700;
+  color:rgba(0, 0, 0, 0.753);
+  font-size: 2em;
+  margin-left: 115px;
+  margin-right: 115px;
+  text-align: left;
 }
