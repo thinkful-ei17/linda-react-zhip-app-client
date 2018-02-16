@@ -1,6 +1,5 @@
 .sidebar {
   min-width: 200px;
-  height: 100vh;
   position: flex;
   align-items: center;
   background-color: #4682B4;
