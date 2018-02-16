@@ -19,6 +19,7 @@ export class InitiateForm extends React.Component {
   render() {
     return (
       <section className='initiate-form'>
+      <div className='title'>Create IOU</div>
       <div id='initiate-form'>
       <form onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
           <Field component={Input} type="text" element="input" name="userIdInitiator" value="" id="userIdInitiator" validate={[required, notEmpty,correctCharLength]} label="Zhip ID"/>

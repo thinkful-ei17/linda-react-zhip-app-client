@@ -1,4 +1,4 @@
-#initiate-form{
+#initiate-form, .title{
   display: flex;
   justify-content: center;
   padding-top: 25px;
@@ -42,8 +42,14 @@ button[type=submit]:hover {
   text-align: center;
 }
 
-label {
+label{
   font-size: 2em;
+  color: #4078a5 
+}
+
+.title{
+  font-size: 3em;
+  color: rgba(0, 0, 0, 0.753)
 }
 
 div.form-input{

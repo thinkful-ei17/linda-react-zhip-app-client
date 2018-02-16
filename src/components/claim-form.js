@@ -17,6 +17,7 @@ export class ClaimForm extends React.Component{
   render() {
     return (
       <section className='claim-form'>
+      <div className='title'>Claim IOU</div>
         <div id='claim-form'>
       <form onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
           <Field component={Input} type="text" element="input" name="userIdClaimer" value="" id="userIdClaimer" validate={[required, notEmpty,correctCharLength]} label="Zhip ID"/>
