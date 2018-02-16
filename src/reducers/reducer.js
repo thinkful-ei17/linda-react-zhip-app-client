@@ -32,7 +32,6 @@ export default (state = initialState, action) => {
           loading: true
         })
       case ACCOUNT_SUCCESS:
-        console.log('what is action for account success', action);
         return Object.assign({}, state, {
           loading: false,
           error: null,
@@ -49,7 +48,6 @@ export default (state = initialState, action) => {
           loading: true
         })
       case SETUP_USER_SUCCESS:
-        console.log('what is action for account success', action);
         return Object.assign({}, state, {
           loading: false,
           error: null,

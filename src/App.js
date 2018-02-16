@@ -2,11 +2,13 @@ import React from 'react';
 import './App.css';
 import LandingPage from './components/landingPage';
 import Sidebar from './components/sidebar';
-import SubmitForm from './components/submit-form';
+import InitiateForm from './components/initiate-form';
 import ClaimForm from './components/claim-form';
 import PlaceholderContainer from './components/placeholder-container';
 import InitiateTransactionContainer from './components/initiate-transaction-container';
 import ClaimTransactionContainer from './components/claim-transaction-container';
+import BalanceForm from './components/balance-form';
+import BalanceContainer from './components/balance-container';
 import {
   BrowserRouter as Router,
   Route,
@@ -24,10 +26,12 @@ export default function App() {
                   <Redirect exact from="/" to="/home" />
                   <Route exact path="/home" component={LandingPage}/>
                   <Route exact path="/r" component={PlaceholderContainer}/>
-                  <Route exact path="/submit" component={SubmitForm}/>
+                  <Route exact path="/create" component={InitiateForm}/>
                   <Route exact path="/it" component={InitiateTransactionContainer}/>
-                  <Route exact path="/ct" component={ClaimTransactionContainer}/>
                   <Route exact path="/transaction/receive/:transactionId" component={ClaimForm}/>
+                  <Route exact path="/ct" component={ClaimTransactionContainer}/>
+                  <Route exact path="/balance" component={BalanceForm}/>
+                  <Route exact path="/ab" component={BalanceContainer}/>
             </Switch>
           </main>
         </div>

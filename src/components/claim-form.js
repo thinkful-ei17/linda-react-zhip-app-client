@@ -9,7 +9,6 @@ import '../css/claim-form.css';
 
 export class ClaimForm extends React.Component{
   onSubmit(values) {
-    console.log('claim-form component, onSubmit button was triggered, dispatch claimTransaction action which will also dispatch account update');
     const transactionId = this.props.match.params.transactionId;
     this.props.dispatch(claimTransaction(values, transactionId));
     this.props.history.push('/ct');

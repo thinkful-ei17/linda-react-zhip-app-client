@@ -20,8 +20,18 @@ export function Sidebar(props) {
                         </Link>
                     </li>
                     <li key="initiate-transaction" className="initiate-transaction menu-list-item ">
-                        <Link to={`/submit`} className='link'>
+                        <Link to={`/create`} className='link'>
                             New IOU
+                        </Link>
+                    </li>
+                    <li key="show-balance" className="show-balance menu-list-item ">
+                        <Link to={`/balance`} className='link'>
+                            IOU Balance
+                        </Link>
+                    </li>
+                    <li key="show-activity" className="show-activity menu-list-item ">
+                        <Link to={`/activity`} className='link'>
+                            IOU Activity
                         </Link>
                     </li>
                 </ul>
