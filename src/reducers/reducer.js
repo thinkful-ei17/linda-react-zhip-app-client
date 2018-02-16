@@ -5,7 +5,8 @@ const initialState = {
     accountBalance: 0,
     loading: false,
     error: null,
-    transactionId: ''
+    transactionId: '',
+    userId: ''
 };
 
 export default (state = initialState, action) => {
