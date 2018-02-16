@@ -1,0 +1,67 @@
+#balance-form{
+  display: flex;
+  justify-content: center;
+  padding-top: 25px;
+}
+
+input[type=text], select {
+  width: 100%;
+  padding: 10px;
+  font-size:2em;
+  margin: 10px 0;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button[type=submit]{
+align-self: center;
+text-align: center;
+padding-top: 24px;
+padding-bottom: 24px;
+width: 60%;
+font-size: 1em;
+font-weight: 600;
+border: 5px solid rgba(255, 166, 0, 0.87) ;
+border-radius: 5px;
+background-color: white;
+text-decoration: none;
+color: rgba(0, 0, 0, 0.753)
+}
+
+
+button[type=submit]:hover {
+  background-color: #4078a5;
+  color: white;
+  border: 5px solid white;
+  border-radius: 5px;
+}
+
+.button-holder{
+  text-align: center;
+}
+
+label {
+  font-size: 2em;
+}
+
+div.form-input{
+  align-self: center;
+  text-align: center;
+}
+
+section > .direction{
+  color:rgba(0, 0, 0, 0.753);
+  font-size: 1em;
+  margin-left: 400px;
+  margin-right: 400px;
+  padding: 24px;
+  margin-top: 30px;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.direction > p {
+  text-align: center;
+}

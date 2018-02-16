@@ -69,6 +69,7 @@ export const createNewUser = () => dispatch => {
   .catch(error => dispatch(setupUserError(error)))
 }
 
+
 //works
 export const initiateTransaction = values => dispatch => {
   console.log('initiateTransaction action was called');
@@ -159,5 +160,31 @@ const updateClaimerAccount = values => dispatch => {
   })
   .then( request => {
     dispatch(accountSuccess(request))})
+  .catch(error => dispatch(accountError(error)))
+}
+
+//works
+export const fetchBalance = values => dispatch => {
+  console.log('fetchBalance action was called');
+  dispatch(accountActionRequest());
+  console.log('what is in my values', values);
+  fetch(`${REACT_APP_API_BASE_URL}/user/balance/${values.userId}`, {
+    method: 'GET',
+    headers: {
+      "Accept": "application/json"
+    }
+  })
+  .then(response =>  {
+    console.log('are we doing anything here response',response);
+    if (!response.ok) {
+      return Promise.reject(response.statusText);
+    }
+    return response.json();
+  })
+  .then( request => {
+    console.log('what and where am i request', request);
+    dispatch(accountSuccess(request));
+    return '3'
+  })
   .catch(error => dispatch(accountError(error)))
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../css/submit-form.css';
+import '../css/initiate-form.css';
 
 export default class Input extends React.Component{
   componentDidUpdate(prevProps) {

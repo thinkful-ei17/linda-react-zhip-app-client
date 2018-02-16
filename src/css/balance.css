@@ -1,0 +1,28 @@
+#balance-section{
+  height: 100vh;
+}
+
+.balance-details p{
+  color:rgba(0, 0, 0, 0.753);
+  font-size: 2em;
+  margin-left: 115px;
+  margin-right: 115px;
+  text-align: center;
+}
+
+.info-container {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 50px;
+  margin-left: 50px;
+  padding: 10px;
+  font-weight: 300;
+  border: 5px solid white;
+  border-radius: 5px;
+  background-color: white;
+}
+
+p.attention-stmt{
+  padding: 24px;
+  font-weight: 700;
+}

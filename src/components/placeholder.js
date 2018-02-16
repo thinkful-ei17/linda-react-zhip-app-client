@@ -11,7 +11,7 @@ export default ({accountBalance, userId}) => {
       <p><span className='key-name'>New User Id:</span> {userId}</p>
       <p className='info-stmt'>Safeguard your new Zhip ID to manage any IOUs you create or any IOUs you receive from other Zhip users.</p>
       <div className='link-container'>
-      <Link to={`/submit`} className='link-new-iou'>
+      <Link to={`/create`} className='link-new-iou'>
           New IOU
       </Link>
       </div>
