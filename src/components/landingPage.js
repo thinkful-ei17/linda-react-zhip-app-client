@@ -1,7 +1,7 @@
 import React from 'react';
 import {createNewUser} from '../actions/actions';
 import {reduxForm} from 'redux-form';
-import {withRouter} from "react-router-dom";
+import {withRouter} from 'react-router-dom';
 
 export class LandingPage extends React.Component{
   componentDidMount(){

@@ -6,10 +6,9 @@ export const transactionActionRequest = () => ({
 });
 
 export const TRANSACTION_SUCCESS = 'TRANSACTION_SUCCESS';
-export const transactionSuccess = (transactionAmount, transactionId) => ({
+export const transactionSuccess = (transaction) => ({
   type: TRANSACTION_SUCCESS,
-  transactionAmount,
-  transactionId
+  payload: {transactionAmount: transaction.transactionAmount, transactionId: transaction._id}
 });
 
 export const TRANSACTION_ERROR = 'TRANSACTION_ERROR';
@@ -33,27 +32,27 @@ export const accountError = () => ({
   type: ACCOUNT_ERROR,
 });
 
-// export const SETUP_ACTION_REQUEST = 'ACCOUNT_ACTION_REQUEST';
-// export const accountActionRequest = () => ({
-//   type: ACCOUNT_ACTION_REQUEST,
-// });
+export const SETUP_USER_ACTION_REQUEST = 'SETUP_USER_ACTION_REQUEST';
+export const setupUserActionRequest = () => ({
+  type: SETUP_USER_ACTION_REQUEST,
+});
 
-// export const SETUP_SUCCESS = 'ACCOUNT_SUCCESS';
-// export const accountSuccess = (account) => ({
-//   type: ACCOUNT_SUCCESS,
-//   payload: {accountBalance: account.accountBalance, userId: account._id}
-// });
+export const SETUP_USER_SUCCESS = 'SETUP_USER_SUCCESS';
+export const setupUserSuccess = (account) => ({
+  type: SETUP_USER_SUCCESS,
+  payload: {accountBalance: account.accountBalance, userId: account._id}
+});
 
-// export const SETUP_ERROR = 'ACCOUNT_ERROR';
-// export const accountError = () => ({
-//   type: ACCOUNT_ERROR,
-// });
+export const SETUP_USER_ERROR = 'SETUP_USER_ERROR';
+export const setupUserError = () => ({
+  type: SETUP_USER_ERROR,
+});
 
 
 //works
 export const createNewUser = () => dispatch => {
   console.log('createNewUser action was called');
-  dispatch(accountActionRequest());
+  dispatch(setupUserActionRequest());
   return fetch(`${REACT_APP_API_BASE_URL}/user/new`, {
     method: 'POST',
   })
@@ -64,10 +63,10 @@ export const createNewUser = () => dispatch => {
     return response.json();
   })
   .then( request => {
-    dispatch(accountSuccess(request));
+    dispatch(setupUserSuccess(request));
     return '1'
   })
-  .catch(error => dispatch(accountError(error)))
+  .catch(error => dispatch(setupUserError(error)))
 }
 
 //works
@@ -89,7 +88,9 @@ export const initiateTransaction = values => dispatch => {
   })
   .then( request => {
     dispatch(updateInitiatorAccount(request)); 
-    dispatch(transactionSuccess(request))})
+    dispatch(transactionSuccess(request));
+    return '2'
+  })
   .catch(error => dispatch(transactionError(error)))
 }
 

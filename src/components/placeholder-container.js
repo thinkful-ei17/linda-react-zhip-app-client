@@ -6,7 +6,7 @@ export class PlaceholderContainer extends React.Component {
     
     render(props) {
         return (
-            <div className="transaction-section">
+            <div className="new-user-section">
                 <Placeholder accountBalance={this.props.accountBalance} userId={this.props.userId} />
             </div>
         );

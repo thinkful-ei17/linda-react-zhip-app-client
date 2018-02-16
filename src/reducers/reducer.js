@@ -1,4 +1,4 @@
-import {TRANSACTION_ACTION_REQUEST, TRANSACTION_SUCCESS, TRANSACTION_ERROR, ACCOUNT_ACTION_REQUEST, ACCOUNT_SUCCESS, ACCOUNT_ERROR} from '../actions/actions';
+import {TRANSACTION_ACTION_REQUEST, TRANSACTION_SUCCESS, TRANSACTION_ERROR, ACCOUNT_ACTION_REQUEST, ACCOUNT_SUCCESS, ACCOUNT_ERROR, SETUP_USER_ACTION_REQUEST, SETUP_USER_SUCCESS, SETUP_USER_ERROR} from '../actions/actions';
 
 const initialState = {
     transactionAmount: 0,
@@ -19,7 +19,8 @@ export default (state = initialState, action) => {
         return Object.assign({}, state, {
           loading: false,
           error: null,
-          transactionAmount: action.transactionAmount,
+          transactionAmount: action.payload.transactionAmount,
+          transactionId: action.payload.transactionId
         })
       case TRANSACTION_ERROR:
         return Object.assign({}, state, {
@@ -39,6 +40,23 @@ export default (state = initialState, action) => {
           userId: action.payload.userId
         })
       case ACCOUNT_ERROR:
+        return Object.assign({}, state, {
+          loading: false,
+          error: action.error
+        })
+      case SETUP_USER_ACTION_REQUEST: 
+        return Object.assign({}, state, {
+          loading: true
+        })
+      case SETUP_USER_SUCCESS:
+        console.log('what is action for account success', action);
+        return Object.assign({}, state, {
+          loading: false,
+          error: null,
+          accountBalance: action.payload.accountBalance,
+          userId: action.payload.userId
+        })
+      case SETUP_USER_ERROR:
         return Object.assign({}, state, {
           loading: false,
           error: action.error

@@ -3,11 +3,17 @@ import {reduxForm, Field} from 'redux-form';
 import {required, notEmpty, correctCharLength, characterType} from '../validators/submit-form-validator';
 import Input from './input';
 import {initiateTransaction} from '../actions/actions';
+import {withRouter} from 'react-router-dom';
 
-export class SubmitForm extends React.Component{
+
+export class SubmitForm extends React.Component {
   onSubmit(values) {
-    console.log('submit-form component, onSubmit button was triggered, dispatch initiateTransaction action which will also dispatch account update');
-    return this.props.dispatch(initiateTransaction(values))
+    this.props.dispatch(initiateTransaction(values)).then(results => {
+      if(results === '2'){
+        this.props.history.push('/it')
+      }
+      return results
+    })
   }
   render() {
     return (
@@ -20,6 +26,6 @@ export class SubmitForm extends React.Component{
   }
 }  
 
-export default reduxForm({
-  form: 'submit'
-})(SubmitForm);
+const SmartRouter = withRouter(reduxForm({form: 'submit'})(SubmitForm));
+
+export default SmartRouter
