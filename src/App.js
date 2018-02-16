@@ -22,7 +22,6 @@ export default function App() {
                   <Redirect exact from="/" to="/home" />
                   <Route exact path="/home" component={LandingPage}/>
                   <Route exact path="/submit" component={SubmitForm}/>
-                 
                   <Route exact path="/r" component={PlaceholderContainer}/>
                   <Route exact path="/transaction/receive/:transactionId" component={ClaimForm}/>
             </Switch>
