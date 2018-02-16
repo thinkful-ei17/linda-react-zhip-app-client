@@ -5,6 +5,8 @@ import Input from './input';
 import {claimTransaction} from '../actions/actions';
 import {withRouter} from 'react-router-dom';
 
+import '../css/claim-form.css';
+
 export class ClaimForm extends React.Component{
   onSubmit(values) {
     console.log('claim-form component, onSubmit button was triggered, dispatch claimTransaction action which will also dispatch account update');
@@ -15,10 +17,19 @@ export class ClaimForm extends React.Component{
  
   render() {
     return (
+      <section className='claim-form'>
+        <div id='claim-form'>
       <form onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
-          <Field component={Input} type="text" element="input" name="userIdClaimer" value="" id="userIdClaimer" validate={[required, notEmpty,correctCharLength]} label="Input your user id"/>
+          <Field component={Input} type="text" element="input" name="userIdClaimer" value="" id="userIdClaimer" validate={[required, notEmpty,correctCharLength]} label="Zhip ID"/>
+        <div className='button-holder'>
         <button type="submit">Submit</button>
+        </div>
       </form>
+      </div>
+      <div className='direction'>
+        <p>Input your Zhip ID to claim the IOU.</p>
+      </div>
+      </section>
     );
   }
 }  

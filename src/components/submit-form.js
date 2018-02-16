@@ -5,6 +5,7 @@ import Input from './input';
 import {initiateTransaction} from '../actions/actions';
 import {withRouter} from 'react-router-dom';
 
+import '../css/submit-form.css';
 
 export class SubmitForm extends React.Component {
   onSubmit(values) {
@@ -17,11 +18,21 @@ export class SubmitForm extends React.Component {
   }
   render() {
     return (
+      <section className='submit-form'>
+      <div id='submit-form'>
       <form onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
-          <Field component={Input} type="text" element="input" name="userIdInitiator" value="" id="userIdInitiator" validate={[required, notEmpty,correctCharLength]} label="Input your user id"/>
-          <Field component={Input} type="text" element="input" name="transactionAmount" value="" id="transactionAmount" label="Input IOU amount" validate={[required, notEmpty, characterType]}></Field>
+          <Field component={Input} type="text" element="input" name="userIdInitiator" value="" id="userIdInitiator" validate={[required, notEmpty,correctCharLength]} label="Zhip ID"/>
+          <Field component={Input} type="text" element="input" name="transactionAmount" value="" id="transactionAmount" label="IOU Amount" validate={[required, notEmpty, characterType]}></Field>
+        <div className='button-holder'>
         <button type="submit">Submit</button>
+        </div> 
       </form>
+      </div>
+      <div className='direction'>
+        <p className='attention-stmt'>Input your Zhip ID and IOU amount.</p>
+        <p>Once you submit, you'll be provided with a unique url that you can provide to any recipient!</p>
+      </div>
+      </section>
     );
   }
 }  

@@ -1,0 +1,16 @@
+#claim-section{
+  height: 100vh;
+}
+
+.claim-details p{
+  color:rgba(0, 0, 0, 0.753);
+  font-size: 2em;
+  margin-left: 115px;
+  margin-right: 115px;
+  text-align: center;
+}
+
+p.attention-stmt{
+  padding: 24px;
+  font-weight: 700;
+}

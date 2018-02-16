@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import InitiateTransaction from './initiate-transaction';
+import '../css/initiate-transaction.css';
 
 export class InitiateTransactionContainer extends React.Component {
     
