@@ -6,6 +6,7 @@ import SubmitForm from './components/submit-form';
 import ClaimForm from './components/claim-form';
 import PlaceholderContainer from './components/placeholder-container';
 import InitiateTransactionContainer from './components/initiate-transaction-container';
+import ClaimTransactionContainer from './components/claim-transaction-container';
 import {
   BrowserRouter as Router,
   Route,
@@ -25,6 +26,7 @@ export default function App() {
                   <Route exact path="/r" component={PlaceholderContainer}/>
                   <Route exact path="/submit" component={SubmitForm}/>
                   <Route exact path="/it" component={InitiateTransactionContainer}/>
+                  <Route exact path="/ct" component={ClaimTransactionContainer}/>
                   <Route exact path="/transaction/receive/:transactionId" component={ClaimForm}/>
             </Switch>
           </main>
