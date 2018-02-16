@@ -9,16 +9,19 @@ export function Sidebar(props) {
 
     return (
         <div className="sidebar sidebar-left">
+            <div className='application-name'>
+                Zhip
+            </div>
             <nav className="menu">
                 <ul className="menu-list">
                     <li key="app-home" className="app-home menu-list-item">
-                        <Link to={`/home`}>
+                        <Link to={`/home`} className='link'>
                             Home
                         </Link>
                     </li>
                     <li key="initiate-transaction" className="initiate-transaction menu-list-item ">
-                        <Link to={`/submit`}>
-                            Create IOU
+                        <Link to={`/submit`} className='link'>
+                            New IOU
                         </Link>
                     </li>
                 </ul>

@@ -1,0 +1,46 @@
+#landingpage {
+  height: 100vh;
+  position: flex;
+  align-items: center;
+}
+
+.intro-message {
+ color:rgba(0, 0, 0, 0.753);
+ font-size: 3em;
+ font-weight: 1000;
+ text-align: center;
+}
+
+.new-user-form {
+  text-align: center;
+}
+
+.new-user-form p{
+  color:rgba(0, 0, 0, 0.753);
+  font-size: 2em;
+  margin-left: 115px;
+  margin-right: 115px;
+}
+
+p.attention-stmt{
+  padding: 24px;
+  font-weight: 700;
+}
+
+.secure-id-btn {
+  align-self: center;
+  text-align: center;
+  width: 18%;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  font-size: 1em;
+  font-weight: 600;
+  border: 5px solid white;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.secure-id-btn:hover {
+  background-color: #4682B4;
+  color: white;
+}
