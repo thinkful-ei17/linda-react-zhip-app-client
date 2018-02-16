@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-//import LandingPage from './components/landingPage';
+import LandingPage from './components/landingPage';
 import Sidebar from './components/sidebar';
 import SubmitForm from './components/submit-form';
 import ClaimForm from './components/claim-form';
@@ -19,6 +19,7 @@ export default function App() {
           <main>
             <Switch>
                   <Redirect exact from="/" to="/home" />
+                  <Route exact path="/home" component={LandingPage}/>
                   <Route exact path="/submit" component={SubmitForm}/>
                   <Route exact path="/transaction/receive/:transactionId" component={ClaimForm}/>
             </Switch>
