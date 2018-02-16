@@ -34,6 +34,24 @@ export const accountError = () => ({
 });
 
 //works
+export const createNewUser = () => dispatch => {
+  console.log('createNewUser action was called');
+  dispatch(accountActionRequest());
+  return fetch(`${REACT_APP_API_BASE_URL}/user/new`, {
+    method: 'POST',
+  })
+  .then(response =>  {
+    if (!response.ok) {
+      return Promise.reject(response.statusText);
+    }
+    return response.json();
+  })
+  .then( request => {
+    dispatch(accountSuccess(request))})
+  .catch(error => dispatch(accountError(error)))
+}
+
+//works
 export const initiateTransaction = values => dispatch => {
   console.log('initiateTransaction action was called');
   dispatch(transactionActionRequest());
