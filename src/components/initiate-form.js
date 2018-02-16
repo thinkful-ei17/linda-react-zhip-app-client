@@ -21,7 +21,7 @@ export class InitiateForm extends React.Component {
       <section className='initiate-form'>
       <div className='title'>Create IOU</div>
       <div id='initiate-form'>
-      <form onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
+      <form autoComplete="off" onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
           <Field component={Input} type="text" element="input" name="userIdInitiator" value="" id="userIdInitiator" validate={[required, notEmpty,correctCharLength]} label="Zhip ID"/>
           <Field component={Input} type="text" element="input" name="transactionAmount" value="" id="transactionAmount" label="IOU Amount" validate={[required, notEmpty, characterType]}></Field>
         <div className='button-holder'>

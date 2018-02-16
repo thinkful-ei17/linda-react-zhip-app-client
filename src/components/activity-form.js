@@ -19,7 +19,7 @@ export class ActivityForm extends React.Component {
       <section className='activity-form'>
       <div className='title'>Activity</div>
       <div id='activity-form'>
-      <form onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
+      <form autoComplete="off" onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
           <Field component={Input} type="text" element="input" name="userId" value="" id="userId" validate={[required, notEmpty,correctCharLength]} label="Zhip ID"/>
         <div className='button-holder'>
         <button type="submit">Submit</button>
