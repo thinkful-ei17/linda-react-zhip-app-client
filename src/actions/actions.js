@@ -64,7 +64,6 @@ export const createNewUser = () => dispatch => {
     return response.json();
   })
   .then( request => {
-    console.log(request);
     dispatch(accountSuccess(request));
     return '1'
   })

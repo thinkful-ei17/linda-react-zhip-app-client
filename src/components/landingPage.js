@@ -10,7 +10,7 @@ export class LandingPage extends React.Component{
 
   onSubmit() {
     this.props.dispatch(createNewUser()).then(results => {
-      if(results){
+      if(results === '1'){
         this.props.history.push('/r')
       }
       return results 
