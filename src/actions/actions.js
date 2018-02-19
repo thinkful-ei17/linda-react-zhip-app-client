@@ -67,7 +67,6 @@ export const activityError = () => ({
 
 //works
 export const createNewUser = () => dispatch => {
-  console.log('createNewUser action was called');
   dispatch(setupUserActionRequest());
   return fetch(`${REACT_APP_API_BASE_URL}/user/new`, {
     method: 'POST',
@@ -88,7 +87,6 @@ export const createNewUser = () => dispatch => {
 
 //works
 export const initiateTransaction = values => dispatch => {
-  console.log('initiateTransaction action was called');
   dispatch(transactionActionRequest());
   return fetch(`${REACT_APP_API_BASE_URL}/transaction/send`, {
     method: 'POST',
@@ -113,7 +111,6 @@ export const initiateTransaction = values => dispatch => {
 
 //works
 const updateInitiatorAccount = values => dispatch => {
-  console.log('updateInitiatorAccount action was called');
   dispatch(accountActionRequest());
   fetch(`${REACT_APP_API_BASE_URL}/account/send`, {
     method: 'PUT',
@@ -136,7 +133,6 @@ const updateInitiatorAccount = values => dispatch => {
 
 //works
 export const claimTransaction = (values, transactionId) => dispatch => {
-  console.log('claimTransaction action was called');
   dispatch(transactionActionRequest());
   fetch(`${REACT_APP_API_BASE_URL}/transaction/receive/${transactionId}`, {
     method: 'PUT',
@@ -159,7 +155,6 @@ export const claimTransaction = (values, transactionId) => dispatch => {
 
 //works
 const updateClaimerAccount = values => dispatch => {
-  console.log('updateClaimerAccount action was called');
   dispatch(accountActionRequest());
   fetch(`${REACT_APP_API_BASE_URL}/account/receive/${values._id}`, {
     method: 'PUT',
@@ -181,7 +176,6 @@ const updateClaimerAccount = values => dispatch => {
 
 //works
 export const fetchBalance = values => dispatch => {
-  console.log('fetchBalance action was called');
   dispatch(accountActionRequest());
   console.log('what is in my values', values);
   fetch(`${REACT_APP_API_BASE_URL}/user/balance/${values.userId}`, {
@@ -191,14 +185,12 @@ export const fetchBalance = values => dispatch => {
     }
   })
   .then(response =>  {
-    console.log('are we doing anything here response',response);
     if (!response.ok) {
       return Promise.reject(response.statusText);
     }
     return response.json();
   })
   .then( request => {
-    console.log('what and where am i request', request);
     dispatch(accountSuccess(request));
   })
   .catch(error => dispatch(accountError(error)))
@@ -206,9 +198,7 @@ export const fetchBalance = values => dispatch => {
 
 //works
 export const fetchTransactions = values => dispatch => {
-  console.log('fetchTransactions action was called');
   dispatch(activityActionRequest());
-  console.log('what is in my values', values);
   fetch(`${REACT_APP_API_BASE_URL}/activity/${values.userId}`, {
     method: 'GET',
     headers: {
@@ -216,14 +206,12 @@ export const fetchTransactions = values => dispatch => {
     }
   })
   .then(response =>  {
-    console.log('are we doing anything here response',response);
     if (!response.ok) {
       return Promise.reject(response.statusText);
     }
     return response.json();
   })
   .then( request => {
-    console.log('what and where am i request', request);
     dispatch(activitySuccess(request));
   })
   .catch(error => dispatch(activityError(error)))

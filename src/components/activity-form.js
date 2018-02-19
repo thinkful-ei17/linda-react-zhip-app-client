@@ -9,7 +9,6 @@ import '../css/activity-form.css';
 
 export class ActivityForm extends React.Component {
   onSubmit(values) {
-    console.log('onsubmit working');
     this.props.dispatch(fetchTransactions(values));
     this.props.history.push('/aa');
     }
