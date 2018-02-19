@@ -21,15 +21,19 @@ export class LandingPage extends React.Component{
   
   render(){
     return (
-      <div id='landingpage'>
+      <section className='landingpage'>
       <div className='intro-message'>Hello World, welcome to Zhip!</div>
+        <div id='new-user-form'>
         <form className='new-user-form' onSubmit={this.props.handleSubmit(() => this.onSubmit())}>
           <p>Send and receive IOUs between you and anyone else without needing their account information.</p>
           <p>All you need is a secured Zhip account ID.</p>
           <p className='attention-stmt'>Let's Get Started!</p>
-           <button className='secure-id-btn' type="submit">Secure New Account ID</button>
+          <div className='button-holder'>
+            <button className='form-submit' type="submit">Secure New Account ID</button>
+          </div>
         </form>
-      </div>
+        </div>
+      </section>
     );
   }
 }

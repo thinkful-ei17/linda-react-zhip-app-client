@@ -1,4 +1,10 @@
-#landingpage {
+#new-user-form{
+  display: flex;
+  justify-content: center;
+  padding-top: 25px;
+}
+
+.landingpage {
   height: 100vh;
   position: flex;
   align-items: center;
@@ -27,23 +33,29 @@ p.attention-stmt{
   font-weight: 700;
 }
 
-.secure-id-btn {
+.button-holder{
+  text-align: center;
+}
+
+.form-submit{
   align-self: center;
   text-align: center;
-  width: 18%;
   padding-top: 24px;
   padding-bottom: 24px;
+  width: 60%;
   font-size: 1em;
   font-weight: 600;
   border: 5px solid rgba(255, 166, 0, 0.87) ;
   border-radius: 5px;
   background-color: white;
+  text-decoration: none;
   color: rgba(0, 0, 0, 0.753)
-}
-
-.secure-id-btn:hover {
-  background-color: #4078a5;
-  color: white;
-  border: 5px solid white;
-  border-radius: 5px;
-}
+  }
+  
+  
+  .form-submit:hover {
+    background-color: #4078a5;
+    color: white;
+    border: 5px solid white;
+    border-radius: 5px;
+  }

@@ -15,33 +15,6 @@ input[type=text], select {
   box-sizing: border-box;
 }
 
-button[type=submit]{
-align-self: center;
-text-align: center;
-padding-top: 24px;
-padding-bottom: 24px;
-width: 60%;
-font-size: 1em;
-font-weight: 600;
-border: 5px solid rgba(255, 166, 0, 0.87) ;
-border-radius: 5px;
-background-color: white;
-text-decoration: none;
-color: rgba(0, 0, 0, 0.753)
-}
-
-
-button[type=submit]:hover {
-  background-color: #4078a5;
-  color: white;
-  border: 5px solid white;
-  border-radius: 5px;
-}
-
-.button-holder{
-  text-align: center;
-}
-
 label{
   font-size: 2em;
   color: #4078a5 

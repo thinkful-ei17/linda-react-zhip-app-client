@@ -22,7 +22,7 @@ export class BalanceForm extends React.Component {
       <form onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
           <Field component={Input} type="text" element="input" name="userId" value="" id="userId" validate={[required, notEmpty,correctCharLength]} label="Zhip ID"/>
         <div className='button-holder'>
-        <button type="submit">Submit</button>
+        <button className="form-submit" type="submit">Submit</button>
         </div> 
       </form>
       </div>

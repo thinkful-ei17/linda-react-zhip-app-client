@@ -25,7 +25,7 @@ export class InitiateForm extends React.Component {
           <Field component={Input} type="text" element="input" name="userIdInitiator" value="" id="userIdInitiator" validate={[required, notEmpty,correctCharLength]} label="Zhip ID"/>
           <Field component={Input} type="text" element="input" name="transactionAmount" value="" id="transactionAmount" label="IOU Amount" validate={[required, notEmpty, characterType]}></Field>
         <div className='button-holder'>
-        <button type="submit">Submit</button>
+        <button className="form-submit" type="submit">Submit</button>
         </div> 
       </form>
       </div>
