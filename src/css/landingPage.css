@@ -1,12 +1,9 @@
 #new-user-form{
-  display: flex;
-  justify-content: center;
   padding-top: 25px;
 }
 
 .landingpage {
   height: 100vh;
-  position: flex;
   align-items: center;
 }
 
